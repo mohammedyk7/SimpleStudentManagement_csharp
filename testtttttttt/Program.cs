@@ -79,7 +79,7 @@ namespace StudentManagementSystem
             while (true)
             {
                 Console.Write("Enter student marks (0-100): ");
-                if (double.TryParse(Console.ReadLine(), out mark) && mark >= 0 && mark <= 100)
+                if (double.TryParse(Console.ReadLine(), out mark) && mark >= 0 && mark <= 100) //here mark does not need to be initialized that's why "out' is used 
                     break;
                 Console.WriteLine("Invalid marks. Please try again.");
             }
