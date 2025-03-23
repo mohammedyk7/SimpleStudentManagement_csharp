@@ -65,14 +65,14 @@ namespace StudentManagementSystem
             Console.Write("Enter student marks: ");
             double marks = double.Parse(Console.ReadLine());
 
-            students.Add(new Student { Name = name, Age = age, Marks = marks });
-            Console.WriteLine("Student added successfully.");
+            students.Add(new Student { Name = name, Age = age, Marks = marks }); //found the fucntion from the internet search.(for shortcut)
+            Console.WriteLine("Student added..");
         }
 
         static void ViewAllStudents()
         {
             Console.WriteLine("All Students:");
-            foreach (var student in students)
+            foreach (var student in students) //used "var" so i can use any variable (auto definition)
             {
                 Console.WriteLine($"Name: {student.Name}, Age: {student.Age}, Marks: {student.Marks}");
             }
@@ -80,9 +80,9 @@ namespace StudentManagementSystem
 
         static void FindStudentByName()
         {
-            Console.Write("Enter student name to search: ");
+            Console.Write("Enter student name for search: ");
             string name = Console.ReadLine().ToLower();
-            var student = students.FirstOrDefault(s => s.Name.ToLower() == name);
+            var student = students.FirstOrDefault(s => s.Name.ToLower() == name); //converting it to lowercase, and then searching for the first student in the students collection whose name matches the input 
 
             if (student != null)
             {
@@ -98,7 +98,7 @@ namespace StudentManagementSystem
         {
             if (students.Count == 0)
             {
-                Console.WriteLine("No students available to calculate average.");
+                Console.WriteLine("No students available to calculate the average:(");
                 return;
             }
 
@@ -108,7 +108,7 @@ namespace StudentManagementSystem
 
         static void FindTopPerformingStudent()
         {
-            if (students.Count == 0)
+            if (students.Count == 0) //if students are not available
             {
                 Console.WriteLine("No students available to find top performer.");
                 return;
