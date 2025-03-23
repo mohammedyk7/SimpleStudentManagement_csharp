@@ -70,7 +70,7 @@ namespace StudentManagementSystem
             while (true)
             {
                 Console.Write("Enter student age (must be > 21): ");
-                if (int.TryParse(Console.ReadLine(), out age) && age > 21)
+                if (int.TryParse(Console.ReadLine(), out age) && age > 21)// to return a value without needing to initialize the age and mark variables (validation)
                     break;
                 Console.WriteLine("Invalid age. Please try again.");
             }
@@ -78,8 +78,8 @@ namespace StudentManagementSystem
             double mark;
             while (true)
             {
-                Console.Write("Enter student marks (0-100): ");
-                if (double.TryParse(Console.ReadLine(), out mark) && mark >= 0 && mark <= 100) //here mark does not need to be initialized that's why "out' is used 
+                Console.Write("Enter student marks (0-100): ");//a numeric value between 0 and 100
+                if (double.TryParse(Console.ReadLine(), out mark) && mark >= 0 && mark <= 100) //here mark does not need to be initialized that's why "out' is used //a numeric value between 0 and 100
                     break;
                 Console.WriteLine("Invalid marks. Please try again.");
             }
@@ -102,7 +102,7 @@ namespace StudentManagementSystem
         static void SearchStudentByName()
         {
             Console.Write("Enter student name to search: ");
-            string searchName = Console.ReadLine().ToLower();
+            string searchName = Console.ReadLine().ToLower(); //so we can match the name inputs in any case (upper or lower) ".ToLower()"
 
             for (int i = 0; i < studentCount; i++)
             {
@@ -120,20 +120,20 @@ namespace StudentManagementSystem
             if (studentCount == 0)
             {
                 Console.WriteLine("No students to calculate average.");
-                return;
+                
             }
 
             double totalMarks = 0;
             for (int i = 0; i < studentCount; i++)
             {
-                totalMarks += marks[i];
+                totalMarks = totalMarks + marks[i];
             }
 
             double average = totalMarks / studentCount;
             Console.WriteLine($"Class Average: {Math.Round(average, 2)}"); //rount to 2 decimal places
         }
 
-        static void SortStudentsByMarks() //bubble sort
+        static void SortStudentsByMarks() //sort
         {
             for (int i = 0; i < studentCount - 1; i++)
             {
