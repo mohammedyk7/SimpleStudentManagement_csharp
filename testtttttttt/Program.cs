@@ -176,6 +176,7 @@ namespace StudentManagementSystem
         {
             Console.Write("Enter student name to delete: ");
             string deleteName = Console.ReadLine().ToLower();
+            bool found = false;
 
             for (int i = 0; i < studentCount; i++)
             {
@@ -189,8 +190,9 @@ namespace StudentManagementSystem
                         enrollmentDate[j] = enrollmentDate[j + 1];
                     }
                     studentCount--;
+                    found = true;
                     Console.WriteLine("Student deleted successfully...");
-                    return;
+                    break;//exit loop
                 }
             }
             Console.WriteLine("Student not found.");
